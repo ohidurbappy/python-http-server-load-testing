@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Python http server load testing</title>
+
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="jquery-ui.min.js"></script>
+<link href="jquery-ui.min.css" rel="stylesheet"/>
+<link href="w3.css" rel="stylesheet"/>
+
+</head>
+
+<body>
+
+
+
+<div class="w3-border w3-margin w3-center" style="margin:auto;" style="height:200px;">
+  <h1>Python HTTP server Load testing</h1>
+<div id="stage"></div>
+</div>
+
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+/*
+myCall=setInterval(function(){
+$('#stage').load('http://localhost:8080/www/?q=sth'); 
+}, .001);
+
+
+
+});
+*/
+
+function getRandomWord(){
+
+$.get("http://localhost:8080/www/?q=sth", function(data, status){
+    $('#stage').html(data);
+
+    console.log()
+
+    getRandomWord();
+  });
+}
+
+getRandomWord();
+
+});
+
+</script>
+
+</body>
+</html>
